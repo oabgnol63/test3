@@ -1,6 +1,6 @@
-CMakeFiles/mainApp.dir/main.cpp.o: /root/Bao/cpp/oop2/main.cpp \
- /usr/include/stdc-predef.h /root/Bao/cpp/oop2/interface.cpp \
- /root/Bao/cpp/oop2/interface.h /root/Bao/cpp/oop2/order.h \
+CMakeFiles/mainApp.dir/main.cpp.o: /root/Bao/cpp/copy2/main.cpp \
+ /usr/include/stdc-predef.h /root/Bao/cpp/copy2/interface.cpp \
+ /root/Bao/cpp/copy2/interface.h /root/Bao/cpp/copy2/order.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -146,11 +146,11 @@ CMakeFiles/mainApp.dir/main.cpp.o: /root/Bao/cpp/oop2/main.cpp \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /root/Bao/cpp/oop2/customer.h \
+ /usr/include/c++/11/bits/istream.tcc /root/Bao/cpp/copy2/customer.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /root/Bao/cpp/oop2/item.h \
+ /usr/include/c++/11/bits/vector.tcc /root/Bao/cpp/copy2/item.h \
  /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
  /usr/include/c++/11/bits/locale_facets_nonio.h /usr/include/c++/11/ctime \
  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
@@ -163,6 +163,6 @@ CMakeFiles/mainApp.dir/main.cpp.o: /root/Bao/cpp/oop2/main.cpp \
  /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
  /usr/include/c++/11/bits/invoke.h \
  /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc /root/Bao/cpp/oop2/customer.cpp \
- /root/Bao/cpp/oop2/item.cpp /root/Bao/cpp/oop2/order.cpp \
+ /usr/include/c++/11/bits/sstream.tcc /root/Bao/cpp/copy2/customer.cpp \
+ /root/Bao/cpp/copy2/item.cpp /root/Bao/cpp/copy2/order.cpp \
  /usr/include/c++/11/stdlib.h

@@ -25,4 +25,6 @@ class item
         string get_name();
         float get_price();
 };
+
+vector<item> _it;
 #endif

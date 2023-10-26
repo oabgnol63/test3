@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/Bao/cpp/oop2
+CMAKE_SOURCE_DIR = /root/Bao/cpp/copy2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/Bao/cpp/oop2/build
+CMAKE_BINARY_DIR = /root/Bao/cpp/copy2/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -89,14 +89,14 @@ clean: CMakeFiles/mainApp.dir/clean
 CMakeFiles/order.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/order.dir/build.make CMakeFiles/order.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/order.dir/build.make CMakeFiles/order.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/oop2/build/CMakeFiles --progress-num=9,10 "Built target order"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/copy2/build/CMakeFiles --progress-num=9,10 "Built target order"
 .PHONY : CMakeFiles/order.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/order.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/order.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 0
 .PHONY : CMakeFiles/order.dir/rule
 
 # Convenience name for target.
@@ -115,14 +115,14 @@ CMakeFiles/order.dir/clean:
 CMakeFiles/customer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/customer.dir/build.make CMakeFiles/customer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/customer.dir/build.make CMakeFiles/customer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/oop2/build/CMakeFiles --progress-num=1,2 "Built target customer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/copy2/build/CMakeFiles --progress-num=1,2 "Built target customer"
 .PHONY : CMakeFiles/customer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/customer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/customer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 0
 .PHONY : CMakeFiles/customer.dir/rule
 
 # Convenience name for target.
@@ -141,14 +141,14 @@ CMakeFiles/customer.dir/clean:
 CMakeFiles/item.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/item.dir/build.make CMakeFiles/item.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/item.dir/build.make CMakeFiles/item.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/oop2/build/CMakeFiles --progress-num=5,6 "Built target item"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/copy2/build/CMakeFiles --progress-num=5,6 "Built target item"
 .PHONY : CMakeFiles/item.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/item.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/item.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 0
 .PHONY : CMakeFiles/item.dir/rule
 
 # Convenience name for target.
@@ -167,14 +167,14 @@ CMakeFiles/item.dir/clean:
 CMakeFiles/interface.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/interface.dir/build.make CMakeFiles/interface.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/interface.dir/build.make CMakeFiles/interface.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/oop2/build/CMakeFiles --progress-num=3,4 "Built target interface"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/copy2/build/CMakeFiles --progress-num=3,4 "Built target interface"
 .PHONY : CMakeFiles/interface.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/interface.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/interface.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 0
 .PHONY : CMakeFiles/interface.dir/rule
 
 # Convenience name for target.
@@ -196,14 +196,14 @@ CMakeFiles/mainApp.dir/all: CMakeFiles/item.dir/all
 CMakeFiles/mainApp.dir/all: CMakeFiles/interface.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainApp.dir/build.make CMakeFiles/mainApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainApp.dir/build.make CMakeFiles/mainApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/oop2/build/CMakeFiles --progress-num=7,8 "Built target mainApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/Bao/cpp/copy2/build/CMakeFiles --progress-num=7,8 "Built target mainApp"
 .PHONY : CMakeFiles/mainApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mainApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mainApp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/oop2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Bao/cpp/copy2/build/CMakeFiles 0
 .PHONY : CMakeFiles/mainApp.dir/rule
 
 # Convenience name for target.

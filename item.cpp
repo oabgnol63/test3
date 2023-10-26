@@ -1,6 +1,6 @@
 #include "item.h"
 
-vector<item> _it;
+
 int item::i_num = 0;
 
 item::item(string name, int quant, float price)

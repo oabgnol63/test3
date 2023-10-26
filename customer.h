@@ -40,6 +40,9 @@ class customer : public Person
         void Output();
         long long get_c_id();
         friend order *make_order(long long id, vector<pair<string,int>> v);
+        void set_total_spent(float);
+        float get_total_spent();
 };
 
+vector<customer> _cs;
 #endif

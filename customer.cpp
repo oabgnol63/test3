@@ -1,7 +1,7 @@
 #include "customer.h"
 
 long long customer::c_num = 2023000;
-vector<customer> _cs;
+
 
 Person::Person(string name,string address,string tel)
 {
@@ -49,13 +49,6 @@ void customer::Output()
     cout << "Ordered list: ";
     for(auto x : this->ordered) cout << x << " ";
     cout << endl;
-    for(auto x : _ord)
-    {
-        if(this->name == x.get_customer().name)
-        {
-            this->total_spent += x.get_total();
-        }
-    }
     cout << fixed << setprecision(2);
     cout << "Total spent: " << this->total_spent << endl;
     if(this->total_spent > 2000000 && this->total_spent < 10000000) this->c_rank = "Silver";
@@ -76,7 +69,7 @@ order *make_order(long long id, vector<pair<string,int>> v)
     for(auto &x : _cs)
         if (x.c_id == id) 
             {
-                temp->set_customer(x);
+                temp->set_customer(&x);
                 x.ordered.push_back(temp->get_o_id());
                 _already = true;
             }
@@ -88,8 +81,9 @@ order *make_order(long long id, vector<pair<string,int>> v)
         cout << "Assigned ID: " << ctemp->c_id << endl;
         ctemp->ordered.push_back(temp->get_o_id());
         _cs.push_back(*ctemp);
-        temp->set_customer(*ctemp);
+        temp->set_customer(&_cs.back());
         delete ctemp; ctemp = NULL;
+        
     }
 
     return temp;
@@ -97,4 +91,14 @@ order *make_order(long long id, vector<pair<string,int>> v)
 long long customer::get_c_id()
 {
     return this->c_id;
+}
+
+void customer::set_total_spent(float tt)
+{
+    this->total_spent = tt;
+}
+
+float customer::get_total_spent()
+{
+    return this->total_spent;
 }

@@ -7,22 +7,22 @@
 #include "item.h"
 
 using namespace std;
-
+class customer;
 class order
 {
     protected:
         long long o_id;
         float total;
         string status = "on the way";
-        customer _ctm;
+        customer *_ctm;
         vector<pair<string,int>> pd;
     public:
         order(){};
-        void set_customer(customer);
+        void set_customer(customer*);
         void set_product_list(vector<pair<string,int>> pd);
         void set_id(long long);
         void set_status(string);
-        customer get_customer();
+        customer* get_customer();
         //void search_by_o_id(order a);
         friend order *search_by_c_id(long long _id);
         void list_order();

@@ -1,8 +1,9 @@
 #include "order.h"
 
-void order::set_customer(customer x)
+void order::set_customer(customer* x)
 {
-    this->_ctm = x;
+    this->_ctm = new customer;
+    (this->_ctm) = x;
 }
 void order::set_product_list(vector<pair<string,int>> _pd)
 {
@@ -16,7 +17,7 @@ void order::set_status(string stt)
 {
     this->status = stt;
 }
-customer order::get_customer()
+customer* order::get_customer()
 {
     return this->_ctm;
 }
@@ -30,8 +31,7 @@ void order::list_order()
     cout << fixed << setprecision(2);
     cout << "Total: " << this->total << endl;
     cout << "Status: " << this->get_status() << endl;
-    this->get_customer().Output();
-
+    this->get_customer()->Output();
 }
 string order::get_status()
 {
@@ -49,7 +49,7 @@ order *search_by_c_id(long long _id)
 {
     for(auto &x : _ord)
     {
-        if(x.get_customer().get_c_id() == _id)
+        if(x.get_customer()->get_c_id() == _id)
         {   
             x.list_order();
             return &x;
