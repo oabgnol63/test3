@@ -2,11 +2,13 @@
 
 void interface()
 {
-    item *a = new item("dildo",100,49999);
+    item *a = new item("black king bar",100,499999);
     _it.push_back(*a);
-    a = new item("pocket pussy",100,599999);
+    a = new item("orchil malevolance",100,5999999);
     _it.push_back(*a);
-    a = new item("porn tape",100,99999);
+    a = new item("divine rapier",100,9999999);
+    _it.push_back(*a);
+    a = new item("maelstrom",100,999999);
     _it.push_back(*a);
     customer *b = new customer("nguyen van a","TMA","911");
     _cs.push_back(*b);
@@ -22,7 +24,7 @@ void interface()
         cout << "4/ List all items\n";
         cout << "5/ List all orders\n";
         cout << "6/ Make a new order\n";
-        cout << "7/ Check order by customer ID\n";
+        cout << "7/ Check order by customer's ID\n";
         cout << "0/ Exit\n";
         cout << "===============================\n";
         cout << "Select a function: "; cin >> _choice;
@@ -82,17 +84,18 @@ void interface()
                 cout << "-----------------------------------------\n";
                 for(auto x : _it)
                     x.list_item();
-                cout << "Type customer id: "; cin >> *ctm_id;
+                cout << "Type customer's ID (numbers only): "; cin >> *ctm_id;
                 while(1)
                 {
                 cout << "Type item's name: ";
                 cin.ignore(); getline(cin,*item_name);
                 for(auto x : _it)
                 { 
-                    if(x.get_name() == *item_name) break;
-                    else continue;
+                    if(x.get_name() == *item_name)  break;
+                    if(x.get_name() != *item_name && x.get_name() != _it.back().get_name()) continue;
+                    else {
                     cout << "\n\tItem not exits\n\n";
-                    goto exitloop;
+                    goto exitloop; }
                 }
                 cout << "Quantities: "; cin >> *item_num;
                 for(auto &x : _it)
@@ -102,7 +105,7 @@ void interface()
                     if(x.get_quantities() >= *item_num) 
                     {
                         x.set_quantities(x.get_quantities() - *item_num);
-                        *_total = *item_num * x.get_price();
+                        *_total += *item_num * x.get_price();
                         break;
                     }
                     cout << "\n\tItem " << *item_name << " have only " << x.get_quantities() << " in stock\n\n";
@@ -112,8 +115,8 @@ void interface()
                 *p = make_pair(*item_name,*item_num);
                 vTemp->push_back(*p);
                 cout << "Continue shopping? (Y|N): "; cin >> *con;
-                if(*con == 'Y') {continue;}
-                else if(*con == 'N') {break;}
+                if(*con == 'Y' || *con =='y') {continue;}
+                else if(*con == 'N' || *con == 'n') {break;}
                 }
                 oTemp = make_order(*ctm_id,*vTemp);
                 oTemp->set_total(*_total);
@@ -129,7 +132,7 @@ void interface()
                 break;
             case 7:
                 system("clear");
-                cout << "Check by customer ID: "; cin >> *ctm_id;
+                cout << "Check by customer's ID: "; cin >> *ctm_id;
                 for(auto x : _ord)
                 if(x.get_customer().get_c_id() == *ctm_id)
                 oTemp = search_by_c_id(*ctm_id);

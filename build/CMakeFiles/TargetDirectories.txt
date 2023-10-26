@@ -1,3 +1,7 @@
+/root/Bao/cpp/oop2/build/CMakeFiles/order.dir
+/root/Bao/cpp/oop2/build/CMakeFiles/customer.dir
+/root/Bao/cpp/oop2/build/CMakeFiles/item.dir
+/root/Bao/cpp/oop2/build/CMakeFiles/interface.dir
 /root/Bao/cpp/oop2/build/CMakeFiles/mainApp.dir
 /root/Bao/cpp/oop2/build/CMakeFiles/edit_cache.dir
 /root/Bao/cpp/oop2/build/CMakeFiles/rebuild_cache.dir

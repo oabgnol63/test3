@@ -117,6 +117,58 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named order
+
+# Build rule for target.
+order: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 order
+.PHONY : order
+
+# fast build rule for target.
+order/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order.dir/build.make CMakeFiles/order.dir/build
+.PHONY : order/fast
+
+#=============================================================================
+# Target rules for targets named customer
+
+# Build rule for target.
+customer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 customer
+.PHONY : customer
+
+# fast build rule for target.
+customer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/customer.dir/build.make CMakeFiles/customer.dir/build
+.PHONY : customer/fast
+
+#=============================================================================
+# Target rules for targets named item
+
+# Build rule for target.
+item: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 item
+.PHONY : item
+
+# fast build rule for target.
+item/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/item.dir/build.make CMakeFiles/item.dir/build
+.PHONY : item/fast
+
+#=============================================================================
+# Target rules for targets named interface
+
+# Build rule for target.
+interface: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 interface
+.PHONY : interface
+
+# fast build rule for target.
+interface/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/interface.dir/build.make CMakeFiles/interface.dir/build
+.PHONY : interface/fast
+
+#=============================================================================
 # Target rules for targets named mainApp
 
 # Build rule for target.
@@ -128,6 +180,78 @@ mainApp: cmake_check_build_system
 mainApp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainApp.dir/build.make CMakeFiles/mainApp.dir/build
 .PHONY : mainApp/fast
+
+customer.o: customer.cpp.o
+.PHONY : customer.o
+
+# target to build an object file
+customer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/customer.dir/build.make CMakeFiles/customer.dir/customer.cpp.o
+.PHONY : customer.cpp.o
+
+customer.i: customer.cpp.i
+.PHONY : customer.i
+
+# target to preprocess a source file
+customer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/customer.dir/build.make CMakeFiles/customer.dir/customer.cpp.i
+.PHONY : customer.cpp.i
+
+customer.s: customer.cpp.s
+.PHONY : customer.s
+
+# target to generate assembly for a file
+customer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/customer.dir/build.make CMakeFiles/customer.dir/customer.cpp.s
+.PHONY : customer.cpp.s
+
+interface.o: interface.cpp.o
+.PHONY : interface.o
+
+# target to build an object file
+interface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/interface.dir/build.make CMakeFiles/interface.dir/interface.cpp.o
+.PHONY : interface.cpp.o
+
+interface.i: interface.cpp.i
+.PHONY : interface.i
+
+# target to preprocess a source file
+interface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/interface.dir/build.make CMakeFiles/interface.dir/interface.cpp.i
+.PHONY : interface.cpp.i
+
+interface.s: interface.cpp.s
+.PHONY : interface.s
+
+# target to generate assembly for a file
+interface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/interface.dir/build.make CMakeFiles/interface.dir/interface.cpp.s
+.PHONY : interface.cpp.s
+
+item.o: item.cpp.o
+.PHONY : item.o
+
+# target to build an object file
+item.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/item.dir/build.make CMakeFiles/item.dir/item.cpp.o
+.PHONY : item.cpp.o
+
+item.i: item.cpp.i
+.PHONY : item.i
+
+# target to preprocess a source file
+item.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/item.dir/build.make CMakeFiles/item.dir/item.cpp.i
+.PHONY : item.cpp.i
+
+item.s: item.cpp.s
+.PHONY : item.s
+
+# target to generate assembly for a file
+item.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/item.dir/build.make CMakeFiles/item.dir/item.cpp.s
+.PHONY : item.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -153,6 +277,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainApp.dir/build.make CMakeFiles/mainApp.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+order.o: order.cpp.o
+.PHONY : order.o
+
+# target to build an object file
+order.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order.dir/build.make CMakeFiles/order.dir/order.cpp.o
+.PHONY : order.cpp.o
+
+order.i: order.cpp.i
+.PHONY : order.i
+
+# target to preprocess a source file
+order.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order.dir/build.make CMakeFiles/order.dir/order.cpp.i
+.PHONY : order.cpp.i
+
+order.s: order.cpp.s
+.PHONY : order.s
+
+# target to generate assembly for a file
+order.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order.dir/build.make CMakeFiles/order.dir/order.cpp.s
+.PHONY : order.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,10 +309,26 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... customer"
+	@echo "... interface"
+	@echo "... item"
 	@echo "... mainApp"
+	@echo "... order"
+	@echo "... customer.o"
+	@echo "... customer.i"
+	@echo "... customer.s"
+	@echo "... interface.o"
+	@echo "... interface.i"
+	@echo "... interface.s"
+	@echo "... item.o"
+	@echo "... item.i"
+	@echo "... item.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... order.o"
+	@echo "... order.i"
+	@echo "... order.s"
 .PHONY : help
 
 

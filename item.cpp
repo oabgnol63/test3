@@ -30,11 +30,14 @@ string item::get_name()
 bool item::new_item()
 {
     string _name;
+    int n = 0;
     cout << "Insert item name: "; cin.ignore() ; getline(cin,_name);
-    for(auto x : _it)
+    for(auto &x : _it)
         if(x.get_name() == _name) 
         {
             cout << "Already exits\n";
+            cout << "Restock. Insert a number: "; cin >> n;
+            x.set_quantities(x.get_quantities() + n);
             return false;
         }
     this->name = _name;

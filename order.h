@@ -8,14 +8,12 @@
 
 using namespace std;
 
-vector<order> _ord;
-
 class order
 {
     protected:
         long long o_id;
         float total;
-        string status;
+        string status = "on the way";
         customer _ctm;
         vector<pair<string,int>> pd;
     public:
@@ -34,5 +32,7 @@ class order
         void set_total(float);
         float get_total();
 };
+
+vector<order> _ord;
 
 #endif

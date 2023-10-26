@@ -56,7 +56,7 @@ void customer::Output()
             this->total_spent += x.get_total();
         }
     }
-    cout << fixed;
+    cout << fixed << setprecision(2);
     cout << "Total spent: " << this->total_spent << endl;
     if(this->total_spent > 2000000 && this->total_spent < 10000000) this->c_rank = "Silver";
     else if(this->total_spent >= 10000000 && this->total_spent < 20000000) this->c_rank = "Gold";

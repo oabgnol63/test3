@@ -27,7 +27,9 @@ void order::list_order()
     cout << "Item/Quantities:\n";
     for(auto x : this->get_product())
         cout << "\t-- " << x.first << "/" << x.second << endl;
+    cout << fixed << setprecision(2);
     cout << "Total: " << this->total << endl;
+    cout << "Status: " << this->get_status() << endl;
     this->get_customer().Output();
 
 }

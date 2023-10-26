@@ -92,6 +92,10 @@ mainApp_EXTERNAL_OBJECTS =
 
 mainApp: CMakeFiles/mainApp.dir/main.cpp.o
 mainApp: CMakeFiles/mainApp.dir/build.make
+mainApp: libcustomer.a
+mainApp: libitem.a
+mainApp: liborder.a
+mainApp: libinterface.a
 mainApp: CMakeFiles/mainApp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/Bao/cpp/oop2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable mainApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mainApp.dir/link.txt --verbose=$(VERBOSE)

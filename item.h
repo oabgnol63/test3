@@ -3,7 +3,7 @@
 #pragma once
 
 #include <iostream>
-
+#include <vector>
 #define iPrefix "Item_no_"
 
 using namespace std;
