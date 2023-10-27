@@ -22,6 +22,7 @@ class Person
         Person(string ,string ,string );
         void Input();
         void Output();
+        string get_info(string type);
 
 };
 
@@ -37,7 +38,7 @@ class customer : public Person
         customer(){};
         customer(string,string,string);
         void Input();
-        void Output();
+        string Output();
         long long get_c_id();
         friend order *make_order(long long id, vector<pair<string,int>> v);
         void set_total_spent(float);

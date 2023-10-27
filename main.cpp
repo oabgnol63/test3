@@ -2,6 +2,7 @@
 
 int main()
 {
+   int _loop;
    item *a = new item("black king bar",100,500000);
    _it.push_back(*a);
    a = new item("orchil malevolance",100,600000);
@@ -26,7 +27,7 @@ int main()
       cout << "7/ Check order by customer's ID\n";
       cout << "0/ Exit\n";
       cout << "===============================\n";
-   interface();
-   return 0;
+   _loop = interface(_cs, _it, _ord);
+   if(_loop == 0 || _loop ==2) return 0;
    }
 }

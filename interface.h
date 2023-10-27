@@ -8,7 +8,6 @@
 #include "order.cpp"
 #include "stdlib.h"
  
-
-void interface();
+int interface(vector<customer>, vector<item>, vector<order>);
 
 #endif

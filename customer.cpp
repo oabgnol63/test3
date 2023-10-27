@@ -24,6 +24,14 @@ void Person::Output()
     cout << "Phone num: " << tel << endl;
 }
 
+string Person::get_info(string type)
+{
+    if(type=="name") return this->name;
+    else if(type=="address") return this->addr;
+    else if(type=="phone") return this->tel;
+    else return "";
+}
+
 customer::customer(string name, string address, string tel)
 {
     this->name = name;
@@ -42,7 +50,7 @@ void customer::Input()
     this->c_rank = "Bronze";
 }
 
-void customer::Output()
+string customer::Output()
 {
     Person::Output();
     cout << "Id: " << this->c_id << endl;
@@ -56,6 +64,7 @@ void customer::Output()
     else if(this->total_spent > 20000000) this->c_rank = "Platinum";
     cout << "Rank: " << this->c_rank << endl;
     cout << "-----------------------------\n";
+    return this->c_rank;
 }
 
 order *make_order(long long id, vector<pair<string,int>> v)
@@ -88,6 +97,7 @@ order *make_order(long long id, vector<pair<string,int>> v)
 
     return temp;
 }
+
 long long customer::get_c_id()
 {
     return this->c_id;
