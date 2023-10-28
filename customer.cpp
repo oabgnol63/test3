@@ -117,3 +117,8 @@ float customer::get_total_spent()
 {
     return this->total_spent;
 }
+
+string customer::get_c_rank()
+{
+    return this->c_rank;
+}

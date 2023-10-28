@@ -44,6 +44,7 @@ class customer : public Person
         void set_total_spent(float);
         float get_total_spent();
         vector<long long> *get_order_list();
+        string get_c_rank();
 };
 
 order *make_order(long long id, vector<pair<string,int>> v, vector<customer>*);
