@@ -1,4 +1,4 @@
-#include "interface.cpp"
+#include "interface.h"
 
 int main()
 {
@@ -15,8 +15,10 @@ int main()
    _cs.push_back(*b);
    delete a; a = NULL;
    delete b; b = NULL;
+   int _choice = 0;
    while(1)
    {
+      Interface *_inter = new Interface;
       cout << "=============MENU==============\n";
       cout << "1/ New customer\n";
       cout << "2/ New item\n";
@@ -27,7 +29,52 @@ int main()
       cout << "7/ Check order by customer's ID\n";
       cout << "0/ Exit\n";
       cout << "===============================\n";
-   _loop = interface(_cs, _it, _ord);
-   if(_loop == 0 || _loop ==2) return 0;
+      cout << "Select a function: "; cin >> _choice;
+      switch(_choice)
+      {
+         case 1:
+            system("clear");
+            _inter->new_customer(&_cs);
+            delete _inter; _inter = NULL;
+            break;
+         case 2:
+            system("clear");
+            _inter->new_item(&_it);
+            delete _inter; _inter = NULL;
+            break;
+         case 3:
+            system("clear");
+            _inter->list_all_customer(_cs);
+            delete _inter; _inter = NULL;
+            break;
+         case 4:
+            system("clear");
+            _inter->list_all_item(_it);
+            delete _inter; _inter = NULL;
+            break;
+         case 5:
+            system("clear");
+            _inter->list_all_order(_ord);
+            delete _inter; _inter = NULL;
+            break;
+         case 6:
+         {
+            system("clear");
+            _inter->make_new_order(&_it, &_ord, &_cs);
+            delete _inter; _inter = NULL;
+            break;
+         }
+         case 7:
+         {
+             system("clear");
+            order *tmp = _inter->check_by_id(_ord);
+            delete _inter; _inter = NULL;
+            break;
+         }
+         case 0:
+            return 0;
+         default:
+            break;
+      }
    }
 }

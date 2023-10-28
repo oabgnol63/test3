@@ -1,7 +1,7 @@
 #include "customer.h"
 
 long long customer::c_num = 2023000;
-
+vector<customer> _cs;
 
 Person::Person(string name,string address,string tel)
 {
@@ -67,7 +67,12 @@ string customer::Output()
     return this->c_rank;
 }
 
-order *make_order(long long id, vector<pair<string,int>> v)
+vector<long long> *customer::get_order_list()
+{
+    return &this->ordered;
+}
+
+order *make_order(long long id, vector<pair<string,int>> v,vector<customer> *c)
 {
     order *temp = new order;
     temp->set_product_list(v);
@@ -75,11 +80,11 @@ order *make_order(long long id, vector<pair<string,int>> v)
     temp->set_id(rand());
     temp->set_status("On going");
     bool _already = false;
-    for(auto &x : _cs)
-        if (x.c_id == id) 
+    for(auto &x : *c)
+        if (x.get_c_id() == id) 
             {
                 temp->set_customer(&x);
-                x.ordered.push_back(temp->get_o_id());
+                x.get_order_list()->push_back(temp->get_o_id());
                 _already = true;
             }
     if(!_already) 
@@ -87,10 +92,10 @@ order *make_order(long long id, vector<pair<string,int>> v)
         cout << "Customer not found! Create new... \n";
         customer *ctemp = new customer;
         ctemp->Input();
-        cout << "Assigned ID: " << ctemp->c_id << endl;
-        ctemp->ordered.push_back(temp->get_o_id());
-        _cs.push_back(*ctemp);
-        temp->set_customer(&_cs.back());
+        cout << "Assigned ID: " << ctemp->get_c_id() << endl;
+        (ctemp->get_order_list())->push_back(temp->get_o_id());
+        c->push_back(*ctemp);
+        temp->set_customer(&c->back());
         delete ctemp; ctemp = NULL;
         
     }

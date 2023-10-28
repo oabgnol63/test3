@@ -1,7 +1,7 @@
 #include "item.h"
 
-
 int item::i_num = 0;
+vector<item> _it;
 
 item::item(string name, int quant, float price)
 {
@@ -50,8 +50,8 @@ bool item::new_item()
 
 void item::list_item()
 {
-    cout << this->id << " \t " << this->name << " \t\t " << this->price << "\t " << this->quantities << "\t" <<endl;
-    cout << "------------------------------------------\n";
+    cout << this->id << " \t " << this->name << " \t" << this->price << "\t " << this->quantities << "\t" <<endl;
+    cout << "--------------------------------------------------\n";
 }
 
 float item::get_price()

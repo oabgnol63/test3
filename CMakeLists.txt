@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.16..3.22)
 set (this mainApp)
 project(${this} C CXX)
 set(CMAKE_CXX_STANDARD 17)

@@ -2,12 +2,11 @@
 #define ORDER_H
 #pragma once
 
-#include <iostream>
 #include "customer.h"
 #include "item.h"
 
-using namespace std;
 class customer;
+
 class order
 {
     protected:
@@ -33,6 +32,6 @@ class order
         float get_total();
 };
 
-vector<order> _ord;
+order *search_by_c_id(long long _id);
 
 #endif

@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+
 #define iPrefix "Item_no_"
 
 using namespace std;
@@ -26,5 +27,5 @@ class item
         float get_price();
 };
 
-vector<item> _it;
+
 #endif

@@ -8,7 +8,7 @@
 #include "item.h"
 #include <iomanip>
 
-#define cPrefix "Customer_No_"
+
 using namespace std;
 
 class order;
@@ -40,10 +40,12 @@ class customer : public Person
         void Input();
         string Output();
         long long get_c_id();
-        friend order *make_order(long long id, vector<pair<string,int>> v);
+        friend order *make_order(long long id, vector<pair<string,int>> v, vector<customer>*);
         void set_total_spent(float);
         float get_total_spent();
+        vector<long long> *get_order_list();
 };
 
-vector<customer> _cs;
+order *make_order(long long id, vector<pair<string,int>> v, vector<customer>*);
+
 #endif
