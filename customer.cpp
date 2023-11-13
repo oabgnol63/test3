@@ -92,7 +92,7 @@ order *make_order(long long id, vector<pair<string,int>> v,vector<customer> *c)
         cout << "Customer not found! Create new... \n";
         customer *ctemp = new customer;
         ctemp->Input();
-        cout << "Assigned ID: " << ctemp->get_c_id() << endl;
+        cout << "Assigned customer's ID: " << ctemp->get_c_id() << endl;
         (ctemp->get_order_list())->push_back(temp->get_o_id());
         c->push_back(*ctemp);
         temp->set_customer(&c->back());

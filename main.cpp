@@ -1,4 +1,4 @@
-#include "interface.cpp"
+#include "interface.h"
 
 int main()
 {
@@ -74,7 +74,7 @@ int main()
          case 0:
             return 0;
          default:
-            break;
+            return 0;
       }
    }
 }

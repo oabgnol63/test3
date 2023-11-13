@@ -31,7 +31,7 @@ bool item::new_item()
 {
     string _name;
     int n = 0;
-    cout << "Insert item name: "; cin.ignore() ; getline(cin,_name);
+    cout << "Insert item's name: "; cin.ignore() ; getline(cin,_name);
     for(auto &x : _it)
         if(x.get_name() == _name) 
         {
@@ -41,7 +41,7 @@ bool item::new_item()
             return false;
         }
     this->name = _name;
-    cout << "Insert item quantities: "; cin >> this->quantities;
+    cout << "Insert item's quantities: "; cin >> this->quantities;
     this->i_num++;
     this->id = iPrefix + to_string(this->i_num);
     cout << "Insert price: "; cin >> this->price;

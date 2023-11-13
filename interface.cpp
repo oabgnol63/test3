@@ -95,7 +95,7 @@ void Interface::make_new_order(vector<item> *i, vector<order> *o, vector<custome
         {
             x.set_quantities(x.get_quantities() - *item_num);
             _total += *item_num * x.get_price();
-    cout << fixed << x.get_price() << "---" << *item_num<< endl;
+            //cout << fixed << x.get_price() << "---" << *item_num<< endl;
             break;
         }
         cout << "\n\tItem " << *item_name << " have only " << x.get_quantities() << " in stock\n\n";
@@ -110,8 +110,9 @@ void Interface::make_new_order(vector<item> *i, vector<order> *o, vector<custome
     else { cout << "Invalid input\n"; return ;}
     }
     oTemp = make_order(*ctm_id,*vTemp,c);
+    cout << "Assigned order's ID: "  << oTemp->get_o_id() << endl;
     oTemp->set_total(_total);
-    cout << fixed << _total << endl;
+    cout << "Total: " << fixed << setprecision(2) << _total << endl;
     oTemp->get_customer()->set_total_spent(_total + oTemp->get_customer()->get_total_spent() );
     o->push_back(*oTemp);
     exitloop:
