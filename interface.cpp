@@ -22,7 +22,10 @@ Interface::~Interface()
     delete p; p = NULL;
     delete con; con = NULL;
     delete vTemp; vTemp = NULL;
-    delete oTemp; oTemp = NULL;    
+    delete oTemp; oTemp = NULL;   
+    delete iTemp; iTemp = NULL;
+    delete cTemp; cTemp = NULL;
+    //delete this; 
 }
 
 void Interface::new_customer(vector<customer> *c)

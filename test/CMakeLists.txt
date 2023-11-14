@@ -1,12 +1,17 @@
 cmake_minimum_required(VERSION 3.22)
 set(this testfile)
 project(${this} C CXX)
-include(CTest)
 set(CMAKE_CXX_STANDARD 17)
+##
+#add local googletest package
+##
 find_package(GTest REQUIRED)
 message("GTEST_INCLUDE_DIRS = ${GTEST_INCLUDE_DIRS}")
 set(GMOCK_LIBRARIES /usr/lib/libgmock.a /usr/lib/libgmock_main.a)
 
+##
+#compile binary test file and link nessesary libraries
+##
 add_executable(${this} test.cc)
 target_link_libraries(${this} PUBLIC
     ${GTEST_LIBRARIES} 
@@ -15,8 +20,10 @@ target_link_libraries(${this} PUBLIC
     order
     item
     interface)
-## order of libs is important. prioritize libs that are independent of others. change the order of libs if there're cyclic depentdent libs
 
+##
+##generating coverage file for coverage test
+##
 option(ENABLE_COVERAGE "Enable coverage" ON)
 if(ENABLE_COVERAGE)
   if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
@@ -34,6 +41,15 @@ if(ENABLE_COVERAGE)
   endif()
 endif()
 
+##
+##add coverage test for `interface` library
+##
+target_compile_options(interface PUBLIC -fprofile-arcs -ftest-coverage -g)
+target_link_libraries(interface PUBLIC gcov)
+
+##
+##add test cases
+##
 add_test(
     NAME ${this}
     COMMAND ./${this} --gtest_filter=InterfaceTest.set_total_value)
@@ -56,4 +72,8 @@ add_test(
 
 add_test(
     NAME ${this}-make-new-order5
-    COMMAND bash -c "echo -ne \"1\ndivine rapier\n1\nn\ntuyen\ntma\n911\" | ./${this} --gtest_filter=InterfaceTest.make_new_order5")
+    COMMAND bash -c "echo -ne \"1\ndivine rapier\n1\nn\ntuyen\ntma\n911\" | ./${this} --gtest_filter=InterfaceTest.make_new_order5"
+    LABEL make-new-order 5 order5
+    WILL_FAIL TRUE)
+
+

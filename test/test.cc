@@ -6,6 +6,7 @@ vector<customer> kh;
 vector<item> vp;
 vector<order> don;
 
+
 class InterfaceTest : public testing::Test
 {
     protected:
@@ -49,70 +50,8 @@ class InterfaceTest : public testing::Test
             delete oTemp; oTemp = NULL;    
             delete iTemp; iTemp = NULL;
             delete cTemp; cTemp = NULL;
+            delete _itf; _itf = NULL;
         };
-    public:
-        void make_new_order(vector<item> *i, vector<order> *o, vector<customer> *c)
-            {
-            if(i->size() == 0) 
-                {
-                    cout << "Item list is empty. Use (2) to insert item first\n\n";
-                    goto exitloop;
-                }
-            cout << "List of available items: \n";
-            cout << "Item ID \t Name \t\t\t Price \t In stock \n" ;
-            cout << "-----------------------------------------\n";
-            for(auto x : *i)
-                x.list_item();
-            cout << "Type customer's ID (numbers only): "; cin >> *ctm_id;
-            while(1)
-            {
-            cout << "Type item's name: ";
-            cin.ignore(); getline(cin,*item_name);
-            for(auto x : *i)
-            { 
-                if(x.get_name() == *item_name)  break;
-                if(x.get_name() != *item_name && x.get_name() != i->back().get_name()) continue;
-                else {
-                cout << "\n\tItem not exits\n\n";
-                goto exitloop; }
-            }
-            cout << "Quantities: "; cin >> *item_num;
-            for(auto &x : *i)
-            { 
-                if(x.get_name() == *item_name)
-                {
-                if(x.get_quantities() >= *item_num) 
-                {
-                    x.set_quantities(x.get_quantities() - *item_num);
-                    _total += *item_num * x.get_price();
-                    break;
-                }
-                cout << "\n\tItem " << *item_name << " have only " << x.get_quantities() << " in stock\n\n";
-                goto exitloop;
-                }
-            }
-            *p = make_pair(*item_name,*item_num);
-            vTemp->push_back(*p);
-            cout << "Continue shopping? (Y|N): "; cin >> *con;
-            if(*con == 'Y' || *con == 'y') {continue;}
-            else if(*con == 'N' || *con == 'n') {break;}
-            else { cout << "Invalid input\n"; return ;}
-            }
-            oTemp = make_order(*ctm_id,*vTemp,c);
-            oTemp->set_total(_total);
-            cout << fixed << _total << endl;
-            oTemp->get_customer()->set_total_spent(_total + oTemp->get_customer()->get_total_spent() );
-            o->push_back(*oTemp);
-            exitloop:
-            delete item_name; item_name = NULL;
-            delete item_num; item_num = NULL;
-            delete ctm_id; ctm_id = NULL;
-            delete p; p = NULL;
-            delete con; con = NULL;
-            delete vTemp; vTemp = NULL;
-            delete oTemp; oTemp = NULL;    
-            _total = 0;
-        }
 };
 /**
  * @brief test constructor of customer
@@ -152,7 +91,7 @@ TEST_F(InterfaceTest,make_new_order)
    kh.push_back(*b);
    delete a; a = NULL;
    delete b; b = NULL;
-   make_new_order(&vp, &don, &kh);
+   _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"bao");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
@@ -170,7 +109,7 @@ TEST_F(InterfaceTest,make_new_order2)
    kh.push_back(*b);
    delete a; a = NULL;
    delete b; b = NULL;
-   make_new_order(&vp, &don, &kh);
+   _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"hoang");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
@@ -188,7 +127,7 @@ TEST_F(InterfaceTest,make_new_order3)
    kh.push_back(*b);
    delete a; a = NULL;
    delete b; b = NULL;
-   make_new_order(&vp, &don, &kh);
+   _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"nam");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
@@ -206,7 +145,7 @@ TEST_F(InterfaceTest,make_new_order4)
    kh.push_back(*b);
    delete a; a = NULL;
    delete b; b = NULL;
-   make_new_order(&vp, &don, &kh);
+   _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"tien");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
@@ -225,7 +164,7 @@ TEST_F(InterfaceTest,make_new_order5)
    kh.push_back(*b);
    delete a; a = NULL;
    delete b; b = NULL;
-   make_new_order(&vp, &don, &kh);
+   _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"huy");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
