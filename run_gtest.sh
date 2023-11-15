@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
-cmake -S . -B build
-cmake --build build
+cmake -S . -B build -G Ninja
+ninja
 cd build/test
 echo -ne "1\ndivine rapier\n1\nn\nbao\ntma\n911" | ./testfile --gtest_filter=InterfaceTest.make_new_order
 echo -ne "1\ndivine rapier\n1\nn\nbao\ntma\n911" | ./testfile --gtest_filter=InterfaceTest.make_new_order2
