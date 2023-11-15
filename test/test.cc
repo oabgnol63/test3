@@ -11,7 +11,7 @@ class InterfaceTest : public testing::Test
 {
     protected:
         Interface *_itf;
-        customer *cTemp;
+        customer *cTemp , *cTempin;
         item *iTemp;
         order *oTemp;
         string *item_name;
@@ -27,7 +27,8 @@ class InterfaceTest : public testing::Test
             cout << "Starting Testing Phase" <<  endl;
             _itf = new Interface;
             cTemp = new customer;
-            iTemp = new item;
+            iTemp = new item("divine rapier",100,1000000);
+            vp.push_back(*iTemp);
             oTemp = new order;
             item_name = new string;
             con = new char;
@@ -37,7 +38,9 @@ class InterfaceTest : public testing::Test
             vTemp = new vector<pair<string,int>>;
             _continue = new bool;
             _total = 0;
-            };
+            cTempin = new customer("nguyen van a","TMA","911");
+            kh.push_back(*cTempin);
+        };
         
         virtual void TearDown() override 
         {
@@ -51,6 +54,9 @@ class InterfaceTest : public testing::Test
             delete iTemp; iTemp = NULL;
             delete cTemp; cTemp = NULL;
             delete _itf; _itf = NULL;
+            delete cTempin; cTempin = NULL;
+            kh.clear();
+            vp.clear();
         };
 };
 /**
@@ -79,72 +85,25 @@ TEST_F(InterfaceTest,set_total_value)
 
 TEST_F(InterfaceTest,make_new_order)
 {
-   item *a = new item("black king bar",100,500000);
-   vp.push_back(*a);
-   a = new item("orchil malevolance",100,600000);
-   vp.push_back(*a);
-   a = new item("divine rapier",100,1000000);
-   vp.push_back(*a);
-   a = new item("maelstrom",100,750000);
-   vp.push_back(*a);
-   customer *b = new customer("nguyen van a","TMA","911");
-   kh.push_back(*b);
-   delete a; a = NULL;
-   delete b; b = NULL;
+
    _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"bao");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
 TEST_F(InterfaceTest,make_new_order2)
 {
-   item *a = new item("black king bar",100,500000);
-   vp.push_back(*a);
-   a = new item("orchil malevolance",100,600000);
-   vp.push_back(*a);
-   a = new item("divine rapier",100,1000000);
-   vp.push_back(*a);
-   a = new item("maelstrom",100,750000);
-   vp.push_back(*a);
-   customer *b = new customer("nguyen van a","TMA","911");
-   kh.push_back(*b);
-   delete a; a = NULL;
-   delete b; b = NULL;
    _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"hoang");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
 TEST_F(InterfaceTest,make_new_order3)
 {
-   item *a = new item("black king bar",100,500000);
-   vp.push_back(*a);
-   a = new item("orchil malevolance",100,600000);
-   vp.push_back(*a);
-   a = new item("divine rapier",100,1000000);
-   vp.push_back(*a);
-   a = new item("maelstrom",100,750000);
-   vp.push_back(*a);
-   customer *b = new customer("nguyen van a","TMA","911");
-   kh.push_back(*b);
-   delete a; a = NULL;
-   delete b; b = NULL;
    _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"nam");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
 }
 TEST_F(InterfaceTest,make_new_order4)
 {
-   item *a = new item("black king bar",100,500000);
-   vp.push_back(*a);
-   a = new item("orchil malevolance",100,600000);
-   vp.push_back(*a);
-   a = new item("divine rapier",100,1000000);
-   vp.push_back(*a);
-   a = new item("maelstrom",100,750000);
-   vp.push_back(*a);
-   customer *b = new customer("nguyen van a","TMA","911");
-   kh.push_back(*b);
-   delete a; a = NULL;
-   delete b; b = NULL;
    _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"tien");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);
@@ -152,18 +111,6 @@ TEST_F(InterfaceTest,make_new_order4)
 
 TEST_F(InterfaceTest,make_new_order5)
 {
-   item *a = new item("black king bar",100,500000);
-   vp.push_back(*a);
-   a = new item("orchil malevolance",100,600000);
-   vp.push_back(*a);
-   a = new item("divine rapier",100,1000000);
-   vp.push_back(*a);
-   a = new item("maelstrom",100,750000);
-   vp.push_back(*a);
-   customer *b = new customer("nguyen van a","TMA","911");
-   kh.push_back(*b);
-   delete a; a = NULL;
-   delete b; b = NULL;
    _itf->make_new_order(&vp, &don, &kh);
    EXPECT_STREQ(kh.back().get_info("name").c_str(),"huy");
    EXPECT_EQ(kh.back().get_order_list()->size(),1);

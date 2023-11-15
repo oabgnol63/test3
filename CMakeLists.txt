@@ -13,8 +13,7 @@ target_link_libraries(${this} PUBLIC ${prlib})
 
 ##setting environment for ctest
 find_program(MEMORYCHECK_COMMAND valgrind)
-set(MEMORYCHECK_COMMAND_OPTIONS "--tool=memcheck --leak-check=yes --show-reachable=no --num-callers=50 --trace-children=yes")
-set(COVERAGE_EXTRA_FLAGS "--all-blocks")
+set(MEMORYCHECK_COMMAND_OPTIONS "-q --tool=memcheck --leak-check=full --show-reachable=no --num-callers=50 --trace-children=yes")
 include(CTest)
 enable_testing()
 add_subdirectory(test)

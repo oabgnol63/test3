@@ -25,7 +25,7 @@ Interface::~Interface()
     delete oTemp; oTemp = NULL;   
     delete iTemp; iTemp = NULL;
     delete cTemp; cTemp = NULL;
-    //delete this; 
+    //delete _continue; _continue = NULL;
 }
 
 void Interface::new_customer(vector<customer> *c)

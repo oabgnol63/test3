@@ -3,14 +3,13 @@ set(this testfile)
 project(${this} C CXX)
 set(CMAKE_CXX_STANDARD 17)
 ##
-#add local googletest package
+##  ----------------add local googletest package
 ##
 find_package(GTest REQUIRED)
-message("GTEST_INCLUDE_DIRS = ${GTEST_INCLUDE_DIRS}")
 set(GMOCK_LIBRARIES /usr/lib/libgmock.a /usr/lib/libgmock_main.a)
 
 ##
-#compile binary test file and link nessesary libraries
+##  ----------------compile binary test file and link nessesary libraries
 ##
 add_executable(${this} test.cc)
 target_link_libraries(${this} PUBLIC
@@ -22,33 +21,23 @@ target_link_libraries(${this} PUBLIC
     interface)
 
 ##
-##generating coverage file for coverage test
+##  ----------------generating coverage file for coverage test
 ##
 option(ENABLE_COVERAGE "Enable coverage" ON)
 if(ENABLE_COVERAGE)
   if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
     message(STATUS "Coverage analysis with gcov enabled") 
-    target_compile_options(${this}
-      PUBLIC
-        -fprofile-arcs -ftest-coverage -g
-      )
-    target_link_libraries(${this}
-      PUBLIC
-        gcov
-      )
+    foreach(target IN LISTS ${this} interface)
+        target_compile_options(target PRIVATE -fprofile-arcs -ftest-coverage -g)
+        target_link_libraries(target PRIVATE gcov)  
+    endforeach()
   else()
     message(WARNING "Coverage not supported for this compiler")
   endif()
 endif()
 
 ##
-##add coverage test for `interface` library
-##
-target_compile_options(interface PUBLIC -fprofile-arcs -ftest-coverage -g)
-target_link_libraries(interface PUBLIC gcov)
-
-##
-##add test cases
+##  ----------------add test cases
 ##
 add_test(
     NAME ${this}
